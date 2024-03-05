@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,52 @@ namespace ConsoleUI
              * Todo: Follow all comments!! 
              * Double click on the region (gray box) to view all comments
              */
+
+            var vehicles = new List<Vehicle>();
+
+            Car legacy = new Car()
+            {
+                Make = "Subaru",
+                Model = "Legacy",
+                Year = 2019
+            };
+
+            Motorcycle ninja = new Motorcycle()
+            {
+                Make = "Kawasaki",
+                Model = "Ninja",
+                Year = 2015
+            };
+
+            Vehicle sedan = new Car()
+            {
+                Make = "Honda",
+                Model = "Accord",
+                Year = 2019
+            };
+
+            Vehicle truck = new Car()
+            {
+                HasTrunk = false,
+                Make = "Ford",
+                Model = "F150",
+                Year = 2017
+            };
+
+            vehicles.Add(legacy);
+            vehicles.Add(ninja);
+            vehicles.Add(sedan);
+            vehicles.Add(truck);
+
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine($"Make:{vehicle.Make}   Model:{vehicle.Model}   " +
+                    $"Year:{vehicle.Year}");
+                vehicle.DriveAbstract();
+                Console.WriteLine("------------------------------------------");
+            }
+
+            Console.ReadLine();
 
             #region Vehicles
 
@@ -48,7 +95,6 @@ namespace ConsoleUI
             // Call each of the drive methods for one car and one motorcycle
 
             #endregion            
-            Console.ReadLine();
         }
     }
 }
